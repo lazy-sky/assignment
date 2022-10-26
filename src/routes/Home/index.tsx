@@ -44,7 +44,7 @@ const Home = () => {
             return (
               <Fragment key={pageKey}>
                 {page.data.map((issue: IIssue, index: number) => {
-                  if (index === 4) {
+                  if (pageIndex === 0 && index === 4) {
                     return (
                       <li key={issue.number} ref={ref}>
                         <a href='https://thingsflow.com/ko/home' target='_blank' rel='noreferrer' className={style.ad}>
