@@ -1,5 +1,12 @@
+@use 'styles/constants/colors';
+@use 'styles/mixins/text';
+
 .detail {
   padding: 20px;
+
+  .backBtn {
+    @include text.body1;
+  }
 
   .top {
     display: grid;
