@@ -10,7 +10,7 @@ interface IProps {
 
 const IssueCard = ({ issue }: IProps) => {
   return (
-    <li className={style.issueCard}>
+    <div className={style.issueCard}>
       <Link to={`/${issue.number}`}>
         <div className={style.top}>
           <div className={style.left}>
@@ -24,7 +24,7 @@ const IssueCard = ({ issue }: IProps) => {
           <div>작성일: {formatDate(issue.created_at)}</div>
         </div>
       </Link>
-    </li>
+    </div>
   )
 }
 
