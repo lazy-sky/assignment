@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { IIssue } from 'types/issue'
+import { formatDate } from 'utils/formatter'
 
 import style from './issueCard.module.scss'
 
@@ -20,7 +21,7 @@ const IssueCard = ({ issue }: IProps) => {
         </div>
         <div className={style.bottom}>
           <div>작성자: {issue.user.login},</div>
-          <div>작성일: {issue.created_at}</div>
+          <div>작성일: {formatDate(issue.created_at)}</div>
         </div>
       </Link>
     </li>
