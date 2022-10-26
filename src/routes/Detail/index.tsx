@@ -1,5 +1,7 @@
 import { useQuery } from '@tanstack/react-query'
 import { useParams, useNavigate } from 'react-router-dom'
+import DOMPurify from 'dompurify'
+import { marked } from 'marked'
 
 import { IIssue } from 'types/issue'
 import { getIssueByNumber } from 'services/data'
@@ -41,7 +43,13 @@ const Detail = () => {
         <img src={data.user.avatar_url} alt='user profile' />
         <IssueCard issue={data} />
       </div>
-      <section>{data.body}</section>
+      <section
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{
+          __html: DOMPurify.sanitize(marked.parse(data.body)),
+        }}
+        className={style.content}
+      />
     </div>
   )
 }
