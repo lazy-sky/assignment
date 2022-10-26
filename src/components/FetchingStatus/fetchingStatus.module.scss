@@ -1,0 +1,33 @@
+@use 'styles/constants/colors';
+@use 'styles/mixins/text';
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.wrapper {
+  @include text.heading3;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  text-align: center;
+}
+
+.loadingSpinner {
+  position: absolute;
+  top: 20vh;
+  width: 64px;
+  height: 64px;
+  border: 8px solid colors.$BLUE;
+  border-top: 8px solid colors.$GRAYE;
+  border-radius: 100%;
+  animation: spinner 0.5s linear infinite;
+}

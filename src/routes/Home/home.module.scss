@@ -1,3 +1,5 @@
+@use 'styles/mixins/text';
+
 .home {
   .ad {
     display: block;
@@ -7,5 +9,10 @@
     > img {
       width: 100%;
     }
+  }
+
+  .noData {
+    @include text.heading2;
+    text-align: center;
   }
 }

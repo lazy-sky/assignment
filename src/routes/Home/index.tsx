@@ -5,6 +5,7 @@ import { useInView } from 'react-intersection-observer'
 import { IIssue } from 'types/issue'
 import { getIssues } from 'services/data'
 import IssueCard from 'components/IssueCard'
+import FetchingStatus from 'components/FetchingStatus'
 
 import style from './home.module.scss'
 
@@ -27,11 +28,19 @@ const Home = () => {
   }, [fetchNextPage, inView])
 
   if (isLoading) {
-    return <div>Loading...</div>
+    return <FetchingStatus status='loading' />
   }
 
   if (isError) {
-    return <div>Error</div>
+    return <FetchingStatus status='error' />
+  }
+
+  if (data.pages[0].data.length === 0) {
+    return (
+      <div className={style.home}>
+        <div className={style.noData}>No Issues</div>
+      </div>
+    )
   }
 
   return (

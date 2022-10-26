@@ -6,6 +6,7 @@ import { marked } from 'marked'
 import { IIssue } from 'types/issue'
 import { getIssueByNumber } from 'services/data'
 import IssueCard from 'components/IssueCard'
+import FetchingStatus from 'components/FetchingStatus'
 
 import style from './detail.module.scss'
 
@@ -27,11 +28,11 @@ const Detail = () => {
   }
 
   if (isLoading) {
-    return <div>Loading...</div>
+    return <FetchingStatus status='loading' />
   }
 
   if (isError) {
-    return <div>Error</div>
+    return <FetchingStatus status='error' />
   }
 
   return (
