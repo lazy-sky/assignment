@@ -1,4 +1,6 @@
+import React from 'react'
 import { Link } from 'react-router-dom'
+
 import { IIssue } from 'types/issue'
 import { formatDate } from 'utils/formatter'
 
@@ -11,7 +13,7 @@ interface IProps {
 const IssueCard = ({ issue }: IProps) => {
   return (
     <div className={style.issueCard}>
-      <Link to={`/${issue.number}`}>
+      <Link to={`/issue/${issue.number}`}>
         <div className={style.top}>
           <div className={style.left}>
             <div>#{issue.number}</div>
@@ -28,4 +30,4 @@ const IssueCard = ({ issue }: IProps) => {
   )
 }
 
-export default IssueCard
+export default React.memo(IssueCard)
